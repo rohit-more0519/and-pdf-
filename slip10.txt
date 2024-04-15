@@ -1,0 +1,173 @@
+Slip 10
+Q1. Create an Android Application
+that Demonstrate Switch and
+Toggle Button
+-------------------
+MainActivity.java
+----------------------
+import android.os.Bundle;
+import android.view.View;
+import
+android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.Toast;
+import
+android.widget.ToggleButton;
+import
+androidx.appcompat.app.AppComp
+atActivity;
+public class MainActivity extends
+AppCompatActivity {
+private Switch switchButton;
+private ToggleButton
+toggleButton;
+@Override
+protected void onCreate(Bundle
+savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_m
+ain);
+switchButton =
+findViewById(R.id.switchButton);
+toggleButton =
+findViewById(R.id.toggleButton);
+switchButton.setOnCheckedChange
+Listener(new
+CompoundButton.OnCheckedChang
+eListener() {
+@Override
+public void
+onCheckedChanged(CompoundButt
+on buttonView, boolean isChecked) {
+if (isChecked) {
+Toast.makeText(MainActivity.this,
+"Switch is ON",
+Toast.LENGTH_SHORT).show();
+} else {
+Toast.makeText(MainActivity.this,
+"Switch is OFF",
+Toast.LENGTH_SHORT).show();
+}
+}
+});
+toggleButton.setOnClickListener(ne
+w View.OnClickListener() {
+@Override
+public void onClick(View v) {
+if
+(toggleButton.isChecked()) {
+Toast.makeText(MainActivity.this,
+"Toggle Button is ON",
+Toast.LENGTH_SHORT).show();
+} else {
+Toast.makeText(MainActivity.this,
+"Toggle Button is OFF",
+Toast.LENGTH_SHORT).show();
+}
+}
+});
+}
+}
+--------------------------
+activity_main.xml
+-----------------------------
+<?xml version="1.0" encoding="utf8"?>
+<RelativeLayout
+xmlns:android="http://schemas.and
+roid.com/apk/res/android"
+xmlns:tools="http://schemas.androi
+d.com/tools"
+android:layout_width="match_pare
+nt"
+android:layout_height="match_pare
+nt"
+tools:context=".MainActivity">
+<Switch
+android:id="@+id/switchButton"
+android:layout_width="wrap_conte
+nt"
+android:layout_height="wrap_conte
+nt"
+android:text="Switch"
+android:layout_centerHorizontal="tr
+ue"
+android:layout_marginTop="50dp"/
+>
+<ToggleButton
+android:id="@+id/toggleButton"
+android:layout_width="wrap_conte
+nt"
+android:layout_height="wrap_conte
+nt"
+android:text="Toggle Button"
+android:layout_below="@id/switch
+Button"
+android:layout_centerHorizontal="tr
+ue"
+android:layout_marginTop="50dp"/
+>
+</RelativeLayout>
+
+----------------------------------------
+Q2. Demonstrate Array Adapter
+using List View to display list of
+fruits.
+------------------------------------
+MainActivity.java
+-------------------------------------
+import android.os.Bundle;
+import
+android.widget.ArrayAdapter;
+import android.widget.ListView;
+import
+androidx.appcompat.app.AppComp
+atActivity;
+public class MainActivity extends
+AppCompatActivity {
+private ListView listViewFruits;
+@Override
+protected void onCreate(Bundle
+savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_m
+ain);
+listViewFruits =
+findViewById(R.id.listViewFruits);
+// Array of fruits
+String[] fruits = {"Apple",
+"Banana", "Orange", "Mango",
+"Grapes", "Strawberry",
+"Pineapple", "Watermelon", "Kiwi",
+"Peach"};
+// Create an ArrayAdapter
+ArrayAdapter<String> adapter =
+new ArrayAdapter<>(this,
+android.R.layout.simple_list_item_1
+, fruits);
+// Set the ArrayAdapter on the
+ListView
+listViewFruits.setAdapter(adapter);
+}
+}
+--------------------------------
+activity_main.xml
+----------------------------
+<?xml version="1.0" encoding="utf8"?>
+<RelativeLayout
+xmlns:android="http://schemas.and
+roid.com/apk/res/android"
+xmlns:tools="http://schemas.androi
+d.com/tools"
+android:layout_width="match_pare
+nt"
+android:layout_height="match_pare
+nt"
+tools:context=".MainActivity">
+<ListView
+android:id="@+id/listViewFruits"
+android:layout_width="match_pare
+nt"
+android:layout_height="match_pare
+nt"/>
+</RelativeLayout>
+
